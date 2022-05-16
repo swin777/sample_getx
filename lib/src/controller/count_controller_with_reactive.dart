@@ -5,13 +5,15 @@ enum NUM { FIRST, SECOND }
 class User {
   String? name;
   int? age;
-  User(this.name, this.age);
+
+  String? addrss;
+  User(this.name, this.age, {this.addrss});
 }
 
 class CountControllerWithReactive extends GetxController{
   RxInt count = 0.obs;
   Rx<double> _double = 0.0.obs;
-  RxString value = "".obs;
+  Rx<String> value = "".obs;
   Rx<NUM> nums = NUM.FIRST.obs;
   Rx<User> user = User("홍길똥", 22).obs;
   RxList<dynamic> list = ["aaa", "bbbb"].obs;
@@ -22,12 +24,17 @@ class CountControllerWithReactive extends GetxController{
     _double(424.89);
 
     nums(NUM.SECOND);
-    //user(User())
-    user.update((_user) {
-      _user!;
-      _user.name = "길똥홍";
-      _user.age = 100;
+    user(User('sss', 10, addrss:'ssss'));
+    user.update((orign) {
+      orign!;
+      orign.name = "길똥홍";
+      orign.age = 100;
     });
+
+    // list.add('ccc');
+    // list.addAll(['dddd', 'eeee']);
+    // list.addIf(user.value.name=='길똥홍', '길똥홍');
+    // list.addAllIf(user.value.name=='홍길똥', ['zzz', 'jjj']);
   }
 
   void putNumber(int value) {

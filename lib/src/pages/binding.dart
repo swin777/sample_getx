@@ -14,21 +14,17 @@ class BindingPage extends GetView<CounControllerWithGetx> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetBuilder<CounControllerWithGetx>(builder: (_){
-              return Text(_.count.toString(), style: TextStyle(fontSize: 40));
-            }),
-            // Obx(
-            //   () => Text(
-            //     controller.count.toString(), 
-            //     style: TextStyle(fontSize: 40)
-            //   )
-            // ),
+            // GetBuilder<CounControllerWithGetx>(builder: (_){
+            //   return Text(_.count.toString(), style: TextStyle(fontSize: 40));
+            // }),
+            Obx(() => Text(controller.count2.toString(), style: TextStyle(fontSize: 100))),
             ElevatedButton(
               child: Text("+", style: TextStyle(fontSize: 30)),
               onPressed: () {
                 //Get.find<CounControllerWithGetx>().increase(null);
                 //CounControllerWithGetx.to.increase(null);
-                controller.increase(null);
+                //controller.increase();
+                controller.increase2();
               }, 
             )
           ],

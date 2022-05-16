@@ -14,4 +14,10 @@ class CounControllerWithGetx extends GetxController {
       update([id]);
     }
   }
+
+  Rx<int> count2 = 0.obs;
+
+  void increase2() {
+    count2.value++;
+  }
 }

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/first',
             page: () => FirstNamedPage(),
-            transition: Transition.leftToRight),
+            transition: Transition.zoom),
         GetPage(
             name: '/second',
             page: () => SecondNamedPage(),
